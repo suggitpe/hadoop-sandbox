@@ -1,0 +1,8 @@
+ext{
+    libs = [
+            eurekaStarter: 'org.springframework.cloud:spring-cloud-starter-eureka-server:1.2.3.RELEASE',
+            test: [
+                    junit: 'junit:junit:4.12'
+            ]
+    ]
+}

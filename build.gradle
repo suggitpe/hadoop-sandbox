@@ -1,0 +1,42 @@
+defaultTasks 'clean', 'build'
+
+buildscript{
+    repositories{
+        jcenter()
+        mavenCentral()
+    }
+    dependencies{
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply from: "$rootDir/gradle/libraries.gradle"
+
+group = 'org.suggs.sandbox.hadoop'
+
+jar{
+    baseName = 'simple-java-service'
+    version = '0.0.1'
+}
+
+repositories{
+    jcenter()
+    mavenCentral()
+}
+
+ext {
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+}
+
+idea.module {
+    downloadSources = true
+}
+
+
+dependencies{
+    compile 'org.springframework.boot:spring-boot-starter-web',
+            'org.springframework.cloud:spring-cloud-starter-eureka-server:1.0.6.RELEASE'
+    testCompile 'junit:junit'
+}
