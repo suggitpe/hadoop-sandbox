@@ -16,7 +16,7 @@ apply from: "$rootDir/gradle/libraries.gradle"
 group = 'org.suggs.sandbox.hadoop'
 
 jar{
-    baseName = 'simple-java-service'
+    baseName = 'hadoop-sandbox'
     version = '0.0.1'
 }
 
@@ -36,7 +36,10 @@ idea.module {
 
 
 dependencies{
-    compile 'org.springframework.boot:spring-boot-starter-web',
-            'org.springframework.cloud:spring-cloud-starter-eureka-server:1.0.6.RELEASE'
-    testCompile 'junit:junit'
+    compile libs.hadoopclient
+
+    testCompile libs.test.junit,
+            libs.test.mrunit,
+            libs.test.hadoopMiniCluster
+
 }

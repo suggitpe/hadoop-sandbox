@@ -1,8 +1,13 @@
 ext{
+
+    hadoopVersion = '2.5.1'
+
     libs = [
-            eurekaStarter: 'org.springframework.cloud:spring-cloud-starter-eureka-server:1.2.3.RELEASE',
+            hadoopclient: "org.apache.hadoop:hadoop-client:${hadoopVersion}",
             test: [
-                    junit: 'junit:junit:4.12'
+                    junit: 'junit:junit:4.12',
+                    mrunit: 'org.apache.mrunit:mrunit:1.1.0:hadoop2',
+                    hadoopMiniCluster: "org.apache.hadoop:hadoop-minicluster:${hadoopVersion}"
             ]
     ]
 }
