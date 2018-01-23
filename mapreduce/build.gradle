@@ -1,0 +1,12 @@
+jar{
+    baseName = 'sandbox-mapreduce'
+}
+
+dependencies{
+    compile libs.hadoopclient
+
+    testCompile libs.test.junit,
+            libs.test.mrunit,
+            libs.test.hadoopMiniCluster
+
+}

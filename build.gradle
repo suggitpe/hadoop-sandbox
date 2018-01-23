@@ -1,45 +1,38 @@
-defaultTasks 'clean', 'build'
+allprojects{ projects ->
 
-buildscript{
+    defaultTasks 'clean', 'build'
+}
+
+subprojects { subprojects ->
+
+    apply plugin: 'java'
+    apply plugin: 'idea'
+
+    buildscript{
+        repositories{
+            jcenter()
+            mavenCentral()
+        }
+        dependencies{
+        }
+    }
+
+    apply from: "$rootDir/gradle/libraries.gradle"
+
+    group = 'org.suggs.sandbox.hadoop'
+
     repositories{
         jcenter()
         mavenCentral()
     }
-    dependencies{
+
+    ext {
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
+    }
+
+    idea.module {
+        downloadSources = true
     }
 }
 
-apply plugin: 'java'
-apply plugin: 'idea'
-apply from: "$rootDir/gradle/libraries.gradle"
-
-group = 'org.suggs.sandbox.hadoop'
-
-jar{
-    baseName = 'hadoop-sandbox'
-    version = '0.0.1'
-}
-
-repositories{
-    jcenter()
-    mavenCentral()
-}
-
-ext {
-    sourceCompatibility = 1.8
-    targetCompatibility = 1.8
-}
-
-idea.module {
-    downloadSources = true
-}
-
-
-dependencies{
-    compile libs.hadoopclient
-
-    testCompile libs.test.junit,
-            libs.test.mrunit,
-            libs.test.hadoopMiniCluster
-
-}
