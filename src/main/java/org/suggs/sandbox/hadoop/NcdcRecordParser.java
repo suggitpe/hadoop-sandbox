@@ -1,8 +1,12 @@
 package org.suggs.sandbox.hadoop;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import static java.lang.Integer.parseInt;
 
 public class NcdcRecordParser {
+    private static final Logger log = LoggerFactory.getLogger(NcdcRecordParser.class);
 
     private static final int MISSING_TEMPERATURE = 9999;
 
@@ -18,6 +22,7 @@ public class NcdcRecordParser {
         } else {
             airTempString = line.substring(87, 92);
         }
+        log.debug("airTemp: " + line.substring(87, 92));
         airTemp = parseInt(airTempString);
         quality = line.substring(92, 93);
     }

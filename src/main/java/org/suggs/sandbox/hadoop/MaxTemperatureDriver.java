@@ -2,6 +2,8 @@ package org.suggs.sandbox.hadoop;
 
 import org.apache.hadoop.conf.Configured;
 import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.io.IntWritable;
+import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
@@ -23,7 +25,7 @@ public class MaxTemperatureDriver extends Configured implements Tool {
             return -1;
         }
 
-        Job job = new Job(getConf());
+        Job job = Job.getInstance();
         job.setJarByClass(getClass());
 
         FileInputFormat.addInputPath(job, new Path(args[0]));
@@ -33,6 +35,9 @@ public class MaxTemperatureDriver extends Configured implements Tool {
         job.setCombinerClass(MaxTemperatureReducer.class);
         job.setReducerClass(MaxTemperatureReducer.class);
 
-        return 0;
+        job.setOutputKeyClass(Text.class);
+        job.setMapOutputValueClass(IntWritable.class);
+
+        return job.waitForCompletion(true) ? 0 : 1;
     }
 }

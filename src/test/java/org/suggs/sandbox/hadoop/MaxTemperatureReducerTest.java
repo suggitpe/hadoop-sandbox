@@ -2,7 +2,7 @@ package org.suggs.sandbox.hadoop;
 
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;
-import org.apache.hadoop.mrunit.ReduceDriver;
+import org.apache.hadoop.mrunit.mapreduce.ReduceDriver;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -14,7 +14,7 @@ public class MaxTemperatureReducerTest {
     public void returnsMaximumIntegerFromValues() throws IOException {
         new ReduceDriver<Text, IntWritable, Text, IntWritable>()
                 .withReducer(new MaxTemperatureReducer())
-                .withInput(new Text("1950"), Arrays.asList(new IntWritable(10), new IntWritable(5), new IntWritable(9)))
+                .withInput(new Text("1950"), Arrays.asList(new IntWritable(10), new IntWritable(5)))
                 .withOutput(new Text("1950"), new IntWritable(10))
                 .runTest();
     }

@@ -3,7 +3,7 @@ package org.suggs.sandbox.hadoop;
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
-import org.apache.hadoop.mrunit.MapDriver;
+import org.apache.hadoop.mrunit.mapreduce.MapDriver;
 import org.junit.Test;
 
 import java.io.IOException;
