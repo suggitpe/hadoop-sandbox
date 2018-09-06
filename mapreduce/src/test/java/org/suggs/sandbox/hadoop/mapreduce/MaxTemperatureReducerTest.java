@@ -1,9 +1,10 @@
-package org.suggs.sandbox.hadoop;
+package org.suggs.sandbox.hadoop.mapreduce;
 
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mrunit.mapreduce.ReduceDriver;
 import org.junit.Test;
+import org.suggs.sandbox.hadoop.mapreduce.MaxTemperatureReducer;
 
 import java.io.IOException;
 import java.util.Arrays;

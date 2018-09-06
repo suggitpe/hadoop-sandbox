@@ -1,4 +1,4 @@
-package org.suggs.sandbox.hadoop;
+package org.suggs.sandbox.hadoop.mapreduce;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

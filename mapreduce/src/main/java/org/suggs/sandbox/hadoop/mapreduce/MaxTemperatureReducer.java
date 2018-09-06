@@ -1,4 +1,4 @@
-package org.suggs.sandbox.hadoop;
+package org.suggs.sandbox.hadoop.mapreduce;
 
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;
