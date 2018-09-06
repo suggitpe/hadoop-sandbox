@@ -1,0 +1,17 @@
+ext {
+
+    hadoopVersion = '2.5.1'
+
+    libs = [
+            scalalang   : 'org.scala-lang:scala-library:2.12.4',
+
+
+            hadoopclient: "org.apache.hadoop:hadoop-client:${hadoopVersion}",
+            test        : [
+                    junit            : 'junit:junit:4.12',
+                    mrunit           : 'org.apache.mrunit:mrunit:1.1.0:hadoop2',
+                    hadoopMiniCluster: "org.apache.hadoop:hadoop-minicluster:${hadoopVersion}",
+                    scalatest        : 'org.scalatest:scalatest_2.12:3.0.4'
+            ]
+    ]
+}

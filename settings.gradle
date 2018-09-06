@@ -1,1 +1,3 @@
-include 'mapreduce'
+include 'mapreduce',
+        'spark-poc'
+

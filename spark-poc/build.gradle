@@ -1,0 +1,11 @@
+apply plugin: 'scala'
+
+jar{
+    baseName = 'spark-poc'
+}
+
+dependencies{
+    compile libs.scalalang
+
+    testCompile libs.test.scalatest
+}

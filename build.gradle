@@ -1,28 +1,15 @@
 allprojects{ projects ->
-
     defaultTasks 'clean', 'build'
 }
 
 subprojects { subprojects ->
 
-    apply plugin: 'idea'
-
-    buildscript{
-        repositories{
-            jcenter()
-            mavenCentral()
-        }
-        dependencies{
-        }
-    }
-
-    apply from: "$rootDir/gradle/libraries.gradle"
+    apply from: "$rootDir/dependencies.gradle"
 
     group = 'org.suggs.sandbox.hadoop'
 
     repositories{
         jcenter()
-        mavenCentral()
     }
 
     ext {
@@ -30,8 +17,5 @@ subprojects { subprojects ->
         targetCompatibility = 1.8
     }
 
-    idea.module {
-        downloadSources = true
-    }
 }
 
