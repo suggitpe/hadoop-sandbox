@@ -5,7 +5,11 @@ jar{
 }
 
 dependencies{
-    compile libs.scalalang
+    compile libs.scalalang,
+            libs.spark,
+            libs.sparkSql
+
+    runtime libs.sparkAvro
 
     testCompile libs.test.scalatest
 }

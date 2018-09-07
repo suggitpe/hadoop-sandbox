@@ -1,17 +1,25 @@
 ext {
 
     hadoopVersion = '2.5.1'
+    scalaVersion = '2.11'
+    sparkVersion = '2.2.0'
 
     libs = [
-            scalalang   : 'org.scala-lang:scala-library:2.12.4',
-
+            scalalang   : 'org.scala-lang:scala-library:2.11.12',
+            spark       : "org.apache.spark:spark-core_${scalaVersion}:${sparkVersion}",
+            sparkSql    : "org.apache.spark:spark-sql_${scalaVersion}:${sparkVersion}",
+            sparkXml    : "com.databricks:spark-xml_${scalaVersion}:0.4.1",
+            sparkAvro   : "com.databricks:spark-avro_${scalaVersion}:4.0.0",
 
             hadoopclient: "org.apache.hadoop:hadoop-client:${hadoopVersion}",
+
+
+
             test        : [
                     junit            : 'junit:junit:4.12',
                     mrunit           : 'org.apache.mrunit:mrunit:1.1.0:hadoop2',
                     hadoopMiniCluster: "org.apache.hadoop:hadoop-minicluster:${hadoopVersion}",
-                    scalatest        : 'org.scalatest:scalatest_2.12:3.0.4'
+                    scalatest        : 'org.scalatest:scalatest_2.11:3.0.5'
             ]
     ]
 }
