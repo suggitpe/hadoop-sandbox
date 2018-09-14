@@ -4,3 +4,7 @@ build/
 *.iml
 out/
 output/
+
+*.avro
+*.crc
+*snappy/
